@@ -146,44 +146,6 @@ VITE_API_URL=http://localhost:5000/api
 
 Restart Vite after adding that.
 
-## Debugging
-
-For the backend in VS Code, add `.vscode/launch.json`:
-
-```json
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Debug Smart Campus API",
-      "program": "${workspaceFolder}/backend/src/server.js",
-      "cwd": "${workspaceFolder}/backend",
-      "envFile": "${workspaceFolder}/backend/.env",
-      "console": "integratedTerminal"
-    }
-  ]
-}
-```
-
-Drop a breakpoint somewhere like `authController.js`, hit F5, trigger it from the browser.
-
-For the frontend, DevTools (F12) is usually faster than setting up a debugger, Network + Console tabs cover most issues.
-
-## Common issues
-
-| Problem | Why | Fix |
-|---------|-----|-----|
-| `npm` not recognized | Node isn't installed / not on PATH | Reinstall Node LTS, restart your editor |
-| Port 5000 already in use | Something else is running on it | Kill the old process, or change `PORT` in `.env` |
-| Port 5173 already in use | Vite's already running somewhere | Use the existing tab, or stop that terminal |
-| Login hangs / "Database is offline" | Atlas IP isn't whitelisted | Network Access -> add current IP |
-| Frontend loads but nothing works | Backend isn't running | Start it, `cd backend && npm run dev` |
-| CORS errors | API isn't actually on port 5000 | Check `http://localhost:5000` responds |
-| Blank white screen | JS error somewhere | Check the browser console |
-| Seed fails / user exists error | Mongo unreachable | Fix the URI and whitelist, try again |
-
 ## Notes to self / resume points
 
 - Built a role-based platform (JWT + RBAC) covering academics, ops, and helpdesk in one app
